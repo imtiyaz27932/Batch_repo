@@ -1,0 +1,2 @@
+[INFO] Verifying inventory page
+[SUCCESS] Inventory page verified successfully

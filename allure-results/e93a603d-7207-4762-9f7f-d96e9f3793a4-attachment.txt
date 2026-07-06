@@ -1,0 +1,3 @@
+Post status before delete: 200
+✅ Post deleted successfully
+   Status code: 200

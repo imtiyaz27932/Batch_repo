@@ -1,0 +1,2 @@
+Update failed with 503, retrying... (2 retries left)
+Update failed with 503, retrying... (1 retries left)

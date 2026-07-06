@@ -1,0 +1,11 @@
+{
+  "createUser": {
+    "name": "Imtiyaz",
+    "job": "QA Engineer"
+  },
+
+  "updateUser": {
+    "name": "Imtiyaz Ahmad",
+    "job": "Senior QA Engineer"
+  }
+}

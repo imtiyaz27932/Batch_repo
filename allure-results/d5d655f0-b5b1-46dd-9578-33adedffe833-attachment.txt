@@ -1,0 +1,2 @@
+[INFO] Navigating to inventory page
+[INFO] Verifying inventory page loads successfully

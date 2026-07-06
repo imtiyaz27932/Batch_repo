@@ -1,0 +1,2 @@
+[INFO] Adding product to cart
+[SUCCESS] Product added to cart successfully
