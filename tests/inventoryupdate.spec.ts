@@ -47,7 +47,7 @@ import testData from '../testdata.json';
 
 test.describe('SauceDemo Inventory Module', () => {
 
-  test('Verify inventory page loads successfully', async ({
+  test('Verify inventory page loads successfully @smoke', async ({
     inventoryPage
   }) => {
 

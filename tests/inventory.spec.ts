@@ -15,12 +15,12 @@ test.describe('SauceDemo Inventory Module', () => {
     await page.goto('https://www.saucedemo.com/inventory.html');
   });
 
-  test('Verify inventory page loads successfully', async () => {
+  test('Verify inventory page loads successfully @smoke', async () => {
     logger.info('Verifying inventory page loads successfully');
     await inventoryPage.verifyInventoryPageLoaded();
   });
 
-  test('Add product to cart successfully', async () => {
+  test('Add product to cart successfully @smoke', async () => {
     await inventoryPage.addProductAndOpenCart();
   });
 
