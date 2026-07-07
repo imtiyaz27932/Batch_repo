@@ -1,60 +1,64 @@
 pipeline {
     agent any
 
-    stages {
-
-        stage('Checkout Code') {
-            steps {
+    stages{
+        stage('Checkout Code'){
+            steps{
                 checkout scm
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
+
+        stage('install Dependencies'){
+            steps{
                 bat 'call npm install'
             }
         }
 
-        stage('Install Playwright Browsers') {
-            steps {
+
+        stage('Install playwright Browsers') {
+            steps{
                 bat 'call npx playwright install'
             }
         }
 
-        stage('Run Playwright Tests') {
-            steps {
-                bat 'call npx playwright test --grep @smoke'
+        stage('Run playwright tests') {
+            steps{
+                bat 'call npx playwright test'
             }
         }
 
-        stage('Publish HTML Report') {
-            steps {
-                publishHTML(target: [
-                    reportDir: 'playwright-report',
+        stage('publish html reports'){
+            steps{
+                publishHTML(target:[
+                    reportDir:'playwright-report',
                     reportFiles: 'index.html',
-                    reportName: 'Playwright HTML Report',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true,
+                    reportName: 'playwright html reporter',
+                    keppAll: true,
                     allowMissing: false
                 ])
             }
         }
+    
+      post{
 
-    }
+        always{
+            archieveArtifacts artifacts:'playwright-report/**/*',allowEmptyArchieve:true
+            echo 'Pipeline Exectution completed'
 
-    post {
-
-        always {
-            archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
-            echo 'Pipeline Execution Completed'
         }
 
         success {
-            echo 'All Test Cases Passed'
+            echo 'All test cases passed'
         }
 
-        failure {
-            echo 'Some Test Cases Failed'
+        failure{
+            echo 'some test cases gets failed'
         }
+      }
+    
+    
     }
+
+
 }
