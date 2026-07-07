@@ -34,7 +34,8 @@ pipeline {
                     reportDir:'playwright-report',
                     reportFiles: 'index.html',
                     reportName: 'playwright html reporter',
-                    keppAll: true,
+                    keepAll: true,
+                    alwaysLinkToLastBuild:true,
                     allowMissing: false
                 ])
             }
@@ -43,7 +44,7 @@ pipeline {
       post{
 
         always{
-            archieveArtifacts artifacts:'playwright-report/**/*',allowEmptyArchieve:true
+            archiveArtifacts artifacts:'playwright-report/**/*',allowEmptyArchive:true
             echo 'Pipeline Exectution completed'
 
         }
