@@ -27,10 +27,25 @@ pipeline {
             }
         }
 
+        stage('Publish HTML Report') {
+            steps {
+                publishHTML(target: [
+                    reportDir: 'playwright-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Playwright HTML Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: false
+                ])
+            }
+        }
+
     }
 
     post {
+
         always {
+            archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
             echo 'Pipeline Execution Completed'
         }
 
