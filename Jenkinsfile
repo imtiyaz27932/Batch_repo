@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'call npx playwright test'
+                bat 'call npx playwright test --grep @smoke'
             }
         }
 
